@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata  minClientVersion="3.3.0">
+    <id>Octopus.Dependencies.AzureCLI</id>
+    <title>Octopus Azure Powershell CLI</title>
+    <version>$version$</version>
+    <authors>Octopus Deploy</authors>
+    <owners>Octopus Deploy</owners>
+    <summary>Nuget package of Azure Powershell CLI</summary>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>The assemblies needed to run Azure CLI</description>
+    <language>en-US</language>
+    <licenseUrl>https://octopus.com/</licenseUrl>
+    <projectUrl>https://github.com/OctopusDeploy/Octopus.Dependencies.AzureCLI</projectUrl>
+    <iconUrl>http://i.octopusdeploy.com/resources/Avatar3_360.png</iconUrl>
+    <tags>automation deployment</tags>
+    <contentFiles>
+        <files include=".\Microsoft SDKs\Azure\CLI2\**\" buildAction="None" copyToOutput="false" />
+    </contentFiles>
+  </metadata>
+  <files>
+    <file src=".\Microsoft SDKs\Azure\CLI2\**\" target="AzureCLI" />
+  </files>
+</package>
