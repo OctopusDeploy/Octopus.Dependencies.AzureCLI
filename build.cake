@@ -57,7 +57,7 @@ Task("Clean")
     {
         DeleteFile("./Octopus.Dependencies.AzureCLI.temp.nuspec");
     }
-    
+
 });
 
 Task("Restore-Source-Package")
@@ -100,7 +100,7 @@ Task("Unpack-Source-Package")
 });
 
 Task("GetVersion")
-    //.IsDependentOn("Unpack-Source-Package")
+    .IsDependentOn("Unpack-Source-Package")
     .Does(() =>
 {
     Information("Determining version number");
