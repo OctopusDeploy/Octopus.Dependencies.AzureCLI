@@ -28,7 +28,7 @@ var unpackFolderFullPath = Path.GetFullPath(unpackFolder);
 var artifactsDir = @".\artifacts";
 var nugetVersion = string.Empty;
 var nugetPackageFile = string.Empty;
-var file = "azure-cli-2.0.42.msi";
+var file = string.Empty;
 
 ///////////////////////////////////////////////////////////////////////////////
 // SETUP / TEARDOWN
@@ -53,6 +53,7 @@ Task("Clean")
     CleanDirectory(unpackFolder);
     CleanDirectory(buildDir);
     CleanDirectory(artifactsDir);
+    DeleteFile("./Octopus.Dependencies.AzureCLI.temp.nuspec");
 });
 
 Task("Restore-Source-Package")
