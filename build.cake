@@ -2,7 +2,6 @@
 // TOOLS
 //////////////////////////////////////////////////////////////////////
 #tool "nuget:?package=Newtonsoft.Json"
-#tool "nuget:?package=OctopusTools&version=4.38.1"
 #addin "Cake.Http"
 
 using Path = System.IO.Path;
@@ -121,20 +120,11 @@ Task("Pack")
     .Does(() =>
 {
     Information($"Building Octopus.Dependencies.AzureCLI v{nugetVersion}");
-    
-    var processArgumentBuilder = new ProcessArgumentBuilder();
-    processArgumentBuilder.Append($"pack");
-    processArgumentBuilder.Append("--id Octopus.Dependencies.AzureCLI");
-    processArgumentBuilder.Append($"--version {nugetVersion}");
-    processArgumentBuilder.Append("--format nupkg");
-    processArgumentBuilder.Append($"--outfolder {artifactsDir}");
-    processArgumentBuilder.Append($"--basePath {unpackFolderFullPath}");
-    processArgumentBuilder.Append($"--author Octopus Deploy");
-    processArgumentBuilder.Append($"--title Octopus.Dependencies.AzureCLI");
-    processArgumentBuilder.Append($"--description Nuget package of Azure Powershell CLI");
-    var processSettings = new ProcessSettings { Arguments = processArgumentBuilder };
-    StartProcess(@".\tools\OctopusTools.4.38.1\tools\Octo.exe", processSettings);
-
+    NuGetPack("Octopus.Dependencies.AzureCLI.nuspec", new NuGetPackSettings {
+        BasePath = unpackFolder,
+        OutputDirectory = artifactsDir,
+        Version = nugetVersion
+    });
 });
 
 Task("Publish")
