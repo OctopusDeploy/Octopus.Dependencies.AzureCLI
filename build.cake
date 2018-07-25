@@ -53,7 +53,11 @@ Task("Clean")
     CleanDirectory(unpackFolder);
     CleanDirectory(buildDir);
     CleanDirectory(artifactsDir);
-    DeleteFile("./Octopus.Dependencies.AzureCLI.temp.nuspec");
+    if (FileExists("./Octopus.Dependencies.AzureCLI.temp.nuspec"))
+    {
+        DeleteFile("./Octopus.Dependencies.AzureCLI.temp.nuspec");
+    }
+    
 });
 
 Task("Restore-Source-Package")
