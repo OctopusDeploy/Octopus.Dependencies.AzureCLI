@@ -1,8 +1,8 @@
 //////////////////////////////////////////////////////////////////////
 // TOOLS
 //////////////////////////////////////////////////////////////////////
-#tool "nuget:?package=Newtonsoft.Json"
-#addin "Cake.Http"
+#tool nuget:?package=Newtonsoft.Json&version=13.0.1
+#addin nuget:?package=Cake.Http&version=1.3.0
 
 using Path = System.IO.Path;
 using IO = System.IO;
